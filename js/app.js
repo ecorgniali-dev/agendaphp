@@ -1,5 +1,5 @@
 const formularioContactos = document.querySelector('#contacto'),
-    listadoContactos = document.querySelector('#listado-contactos tbody');
+    listadoContactos = document.querySelector('#listado-contactos tbody'),
     inputBuscador = document.querySelector('#buscar');
 
 eventListeners();
@@ -84,26 +84,18 @@ function insertarBD(datos) {
             // crear contenedor para los botones
             const contenedorAcciones = document.createElement('td');
 
-            // crear el icono de Editar
-            const iconoEditar = document.createElement('i');
-            iconoEditar.classList.add('fas', 'fa-pen-square');
-
             // crea el enlace para editar
             const btnEditar = document.createElement('a');
-            btnEditar.appendChild(iconoEditar);
+            btnEditar.innerText = 'Editar';
             btnEditar.href = `editar.php?id=${respuesta.datos.id_insertado}`;
             btnEditar.classList.add('btn', 'btn-editar');
 
             // agregarlo al padre
             contenedorAcciones.appendChild(btnEditar);
 
-            // crear el icono de eliminar
-            const iconoEliminar = document.createElement('i');
-            iconoEliminar.classList.add('fas', 'fa-trash-alt');
-
             // crear el boton de eliminar
             const btnEliminar = document.createElement('button');
-            btnEliminar.appendChild(iconoEliminar);
+            btnEliminar.innerText = 'Eliminar';
             btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
             btnEliminar.classList.add('btn', 'btn-borrar');
 
@@ -152,7 +144,7 @@ function actualizarRegistro(datos) {
             // redireccionar a la pagina principal
             setTimeout(() => {
                 window.location.href = 'index.php';
-            }, 4000);
+            }, 1500);
         }
     }
 
@@ -162,9 +154,9 @@ function actualizarRegistro(datos) {
 
 // Eliminar el contacto
 function eliminarContacto(e) {
-    if (e.target.parentElement.classList.contains('btn-borrar')) {
+    if (e.target.classList.contains('btn-borrar')) {
         // tomar el ID
-        const id = e.target.parentElement.getAttribute('data-id');
+        const id = e.target.getAttribute('data-id');
         
         // preguntar al usuario si está seguro
         const respuesta = confirm('¿Estás seguro (a) ?');
@@ -184,8 +176,7 @@ function eliminarContacto(e) {
 
                     if(resultado.respuesta == 'correcto') {
                         // Eliminar el registro del DOM
-                        console.log(e.target.parentElement.parentElement.parentElement);
-                        e.target.parentElement.parentElement.parentElement.remove();
+                        e.target.parentElement.parentElement.remove();
 
                         // Mostrar notificación
                         mostrarNotificacion('Contacto eliminado', 'correcto');

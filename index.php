@@ -44,12 +44,8 @@
                                 <td><?php echo $contacto['empresa']; ?></td>
                                 <td><?php echo $contacto['telefono']; ?></td>
                                 <td>
-                                    <a href="editar.php?id=<?php echo $contacto['id']; ?>" class="btn-editar btn">
-                                        <i class="fas fa-pen-square"></i>
-                                    </a>
-                                    <button data-id="<?php echo $contacto['id']; ?>" type="button" class="btn-borrar btn">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
+                                    <a href="editar.php?id=<?php echo $contacto['id']; ?>" class="btn-editar btn">Editar</a>
+                                    <button data-id="<?php echo $contacto['id']; ?>" type="button" class="btn-borrar btn">Eliminar</button>
                                 </td>
                             </tr>
                             <?php } 

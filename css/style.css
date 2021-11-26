@@ -1,13 +1,14 @@
 /** Custom Properties **/
 :root {
-    --primario: #C2185B;
-    --secundario: #FFC107;
-    --primarioOscuro: rgb(156, 10, 69);
+    --primario: #333533;
+    --secundario: #faa916;
+    --primarioOscuro: #202020;
     --fuentePrimaria: 'Arial', Helvetica, sans-serif;
     --fuenteSecundaria: 'Poppins', sans-serif;
 }
 
 html {
+    height: 100%;
     box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -15,9 +16,16 @@ html {
 }
 
 body {
-    background-color: var(--primario);
+    height: 100%;
+    background-color: #efeff0;
     font-family: var(--fuentePrimaria);
+    min-height: 100vh;
 }
+
+.wrapper {
+    min-height: 100%;
+}
+
 .contenedor {
     max-width: 1100px;
     margin: 0 auto;
@@ -36,17 +44,25 @@ body {
 }
 /** Botones **/
 .btn {
-    font-size: 2rem;
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 4px 12px;
+    border: none;
+    border-radius: 5px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 .btn:hover {
     cursor: pointer;
+    background-color: rgb(0, 0, 0, .4);
 }
 .btn-editar {
-    color: var(--secundario);
+    color: var(--primario);
+    background-color: var(--secundario);
 }
 .btn-borrar {
     color: var(--primario);
+    background-color: #ff8888;
 }
 .volver {
     background-color: var(--secundario);
@@ -57,10 +73,14 @@ body {
     font-size: 1.2rem;
     padding: .5rem;
 }
+.volver:hover {
+    color: white;
+    border: 2px solid #efeff0;
+}
 .sombra {
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
-    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 20px 2px rgba(0,0,0,0.2);
     border-radius: 10px;
 }
 h1, h2 {
@@ -150,6 +170,7 @@ legend span {
 .contactos {
     padding: 2rem;
     margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 .contenedor-contactos {
     max-width: 800px;
@@ -184,7 +205,6 @@ legend span {
 .listado-contactos thead {
     background-color: var(--primario);
     color: white;
-    text-transform: uppercase;
 }
 .listado-contactos thead th {
     padding: 1rem 0;
@@ -193,11 +213,19 @@ legend span {
     padding: .5rem;
 }
 .listado-contactos tbody td:nth-child(4) {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
 }
-.listado-contactos button {
-    background-color: transparent!important;
-    border: none;
+
+/* footer */
+footer {
+    height: 100px;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    background-color: var(--primarioOscuro);
 }
 
 /** Notificaciones **/
